@@ -2,6 +2,7 @@ import { useState } from 'react'
 import DefaultLayout from './layouts/DefaultLayout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Homepage from '../pages/Homepage'
+import MoviePage from '../pages/MoviePage'
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
         <Routes>
           <Route element={<DefaultLayout />} >
             <Route index element={<Homepage />} />
-            <Route path="/movies/:id" element={<h1>Dettaglio films</h1>} />
+            <Route path="/movies/:id" element={<MoviePage />} />
           </Route>
         </Routes>
       </BrowserRouter>
