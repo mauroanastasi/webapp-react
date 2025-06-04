@@ -6,14 +6,16 @@ import { useEffect, useState } from 'react'
 const Homepage = () => {
     const [movies, setMovies] = useState([])
 
-    useEffect(() => {
+    const fetchMovies = () => {
         axios.get(`http://127.0.0.1:3000/api/movies`).then((resp) => {
             setMovies(resp.data);
         })
             .catch((err) => {
                 console.log(err)
             })
-    }, []);
+    }
+
+    useEffect(fetchMovies, []);
 
     return (
         <>
@@ -46,7 +48,7 @@ const Homepage = () => {
                                             {movie.abstract}
                                         </em>
                                     </h4>
-                                    <Link className='btn btn-primary' to="/movies/1">Leggi tutto</Link>
+                                    <Link className='btn btn-primary' to={`/movies/${movie.id}`}>Leggi tutto</Link>
                                 </div>
                             </div>
                         </div>
