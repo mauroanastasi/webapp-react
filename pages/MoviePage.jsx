@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import ReviewsCard from '../components/reviewsCard';
 
 const MoviePage = () => {
     const { id } = useParams();
@@ -35,18 +36,7 @@ const MoviePage = () => {
                             <p>{movie.abstract}</p>
                         </div>
                         <div className="row gy-4">
-                            <div className="col-12">
-                                <div className="d-flex justify-content-between">
-                                    <h3>Our Community Reviews</h3>
-                                </div>
-                            </div>
-                            <div className="col-12">
-                                <div className="card p-4">
-                                    <p>testo recensioni</p>
-                                    <p>voto</p>
-                                    <p>author</p>
-                                </div>
-                            </div>
+                            <ReviewsCard />
                         </div>
                     </>
                 )}
