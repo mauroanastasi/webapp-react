@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import MovieCard from '../components/MovieCard'
 
 const Homepage = () => {
     const [movies, setMovies] = useState([])
@@ -27,30 +28,7 @@ const Homepage = () => {
                 {movies.map((movie) => {
                     return (
                         <div key={`movie-${movie.id}`} className='col-12 col-md-6 col-lg-4'>
-                            <div className="card">
-                                <div className="card-img-top">
-                                    <img src={movie.image} className='img-fluid' alt="Movie" />
-                                </div>
-                                <div className="card-body">
-                                    <h3 className='text-primary'>{movie.title}</h3>
-                                    <h4>
-                                        <em>
-                                            {movie.director}
-                                        </em>
-                                    </h4>
-                                    <h4>
-                                        <em>
-                                            {movie.genre}
-                                        </em>
-                                    </h4>
-                                    <h4>
-                                        <em>
-                                            {movie.abstract}
-                                        </em>
-                                    </h4>
-                                    <Link className='btn btn-primary' to={`/movies/${movie.id}`}>Leggi tutto</Link>
-                                </div>
-                            </div>
+                            <MovieCard movie={movie} />
                         </div>
                     )
                 })}
