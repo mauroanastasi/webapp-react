@@ -35,9 +35,11 @@ const MoviePage = () => {
                             <h1>{movie.genre}</h1>
                             <p>{movie.abstract}</p>
                         </div>
-                        <div className="row gy-4">
-                            <ReviewsCard />
-                        </div>
+                        {movie.reviews.map((review) => (
+                            <div className="row gy-4" key={`reviews-${review.id}`}>
+                                <ReviewsCard review={review} />
+                            </div>
+                        ))}
                     </>
                 )}
             </div>
