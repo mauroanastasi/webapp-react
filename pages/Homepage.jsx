@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const Homepage = () => {
     const [movies, setMovies] = useState([])
@@ -24,10 +24,10 @@ const Homepage = () => {
             <div className='row gy-4' >
                 {movies.map((movie) => {
                     return (
-                        <div className='col-12 col-md-6 col-lg-4'>
+                        <div key={`movie-${movie.id}`} className='col-12 col-md-6 col-lg-4'>
                             <div className="card">
                                 <div className="card-img-top">
-                                    <img src="https://picsum.photos/300/300" className='img-fluid' alt="Movie" />
+                                    <img src={movie.image} className='img-fluid' alt="Movie" />
                                 </div>
                                 <div className="card-body">
                                     <h3 className='text-primary'>{movie.title}</h3>
