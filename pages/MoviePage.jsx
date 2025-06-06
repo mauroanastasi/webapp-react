@@ -35,7 +35,12 @@ const MoviePage = () => {
                             <h1>{movie.genre}</h1>
                             <p>{movie.abstract}</p>
                         </div>
+                        <div className="col-12">
+                            <div className="d-flex justify-content-between">
+                            </div>
+                        </div>
                         <h3 className='mt-5'>Our Community Reviews</h3>
+                        <div><span>Media voti: </span>{movie.avarage_vote}</div>
                         {movie.reviews.map((review) => (
                             <div className="row gy-2" key={`reviews-${review.id}`}>
                                 <ReviewsCard review={review} />
