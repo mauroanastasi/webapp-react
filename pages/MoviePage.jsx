@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ReviewsCard from '../components/reviewsCard';
 
+
 const MoviePage = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
@@ -17,6 +18,20 @@ const MoviePage = () => {
                 console.log(err)
             })
     }
+
+
+    const renderStar = (vote) => {
+        return [1, 2, 3, 4, 5].map((elem, i) => {
+            return (
+                <i
+                    key={`star-avarage-${id}`}
+                    className={`fa-star ${i < vote ? "fa-solid" : "fa-regular"
+                        } text-warning`}
+                ></i>
+            );
+        });
+    };
+
 
     useEffect(fetchMovies, []);
     return (
@@ -40,7 +55,7 @@ const MoviePage = () => {
                             </div>
                         </div>
                         <h3 className='mt-5'>Our Community Reviews</h3>
-                        <div><span>Media voti: </span>{movie.avarage_vote}</div>
+                        <div><span>Media voti: </span>{renderStar(movie.avarage_vote)}</div>
                         {movie.reviews.map((review) => (
                             <div className="row gy-2" key={`reviews-${review.id}`}>
                                 <ReviewsCard review={review} />
