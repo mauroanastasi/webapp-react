@@ -7,6 +7,12 @@ const Revieform = () => {
 
     const { formData, setFormData } = useState(initialData);
 
+    const setFieldValue = (e) => {
+        const { value, name } = e.target
+
+        setFormData({ ...formData, [name]: value })
+    };
+
     return (
         <div className='card' >
             <div className="card-header">
