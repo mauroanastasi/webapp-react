@@ -18,6 +18,8 @@ const Revieform = () => {
 
         axios.post(`http://127.0.0.1:3000/api/movies/${id}/review`, formData, {
             headers: { "Content-Type": "Application/json" },
+        }).then(() => {
+            setFormData(initialData)
         });
 
     };
@@ -28,7 +30,7 @@ const Revieform = () => {
                 <h4>Aggiungi la tua recensione</h4>
             </div>
             <div className="card-body">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Name</label>
                         <input type="text" className='form-control' name="name" placeholder="Nome" value={formData.name} onChange={setFieldValue} required />
