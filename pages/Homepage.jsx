@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import MovieCard from '../components/MovieCard'
+import Loader from '../components/Loader'
 
 const Homepage = () => {
     const [movies, setMovies] = useState([])
@@ -19,7 +20,9 @@ const Homepage = () => {
     useEffect(fetchMovies, []);
 
     return (
+
         <>
+            <Loader />
             <h1 className='text-primary' >All Movies</h1>
             <h2><i>
                 Yours Films in Your Hands
