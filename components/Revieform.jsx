@@ -22,15 +22,20 @@ const Revieform = () => {
                 <form>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Name</label>
-                        <input type="text" className='form-control' name="name" placeholder="Nome" value={formData.name} required />
+                        <input type="text" className='form-control' name="name" placeholder="Nome" value={formData.name} onChange={setFieldValue} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Voto</label>
-                        <input min="0" max="5" type="number" className='form-control' name="vote" placeholder="voto" value={formData.voto} required />
+                        <input min="0" max="5" type="number" className='form-control' name="vote" placeholder="voto" value={formData.voto} onChange={setFieldValue} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Testo</label>
-                        <input type="text" id='text' className='form-control' value={formData.test} />
+                        <input type="text" id='text' className='form-control' value={formData.test} onChange={setFieldValue} />
+                        <div className="form-group">
+                            <button className="btn btn-main" type='submit'>
+                                Salva Recensione
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
