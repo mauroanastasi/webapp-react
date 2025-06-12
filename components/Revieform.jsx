@@ -13,6 +13,15 @@ const Revieform = () => {
         setFormData({ ...formData, [name]: value })
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post(`http://127.0.0.1:3000/api/movies/${id}/review`, formData, {
+            headers: { "Content-Type": "Application/json" },
+        });
+
+    };
+
     return (
         <div className='card' >
             <div className="card-header">
