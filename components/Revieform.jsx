@@ -16,15 +16,15 @@ const Revieform = () => {
                 <form>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Name</label>
-                        <input type="text" className='form-control' name="name" placeholder="Nome" required />
+                        <input type="text" className='form-control' name="name" placeholder="Nome" value={formData.name} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Voto</label>
-                        <input min="0" max="5" type="number" className='form-control' name="vote" placeholder="voto" required />
+                        <input min="0" max="5" type="number" className='form-control' name="vote" placeholder="voto" value={formData.voto} required />
                     </div>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Testo</label>
-                        <input type="text" id='text' className='form-control' />
+                        <input type="text" id='text' className='form-control' value={formData.test} />
                     </div>
                 </form>
             </div>
