@@ -2,10 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
-const Revieform = () => {
+const Revieform = ({ movie_id, reloadReviews }) => {
     const initialData = { name: "", text: "", vote: "" }
 
-    const { formData, setFormData } = useState(initialData);
+    const [formData, setFormData] = useState(initialData);
 
     const setFieldValue = (e) => {
         const { value, name } = e.target
@@ -16,10 +16,11 @@ const Revieform = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post(`http://127.0.0.1:3000/api/movies/${id}/review`, formData, {
+        axios.post(`http://127.0.0.1:3000/api/movies/${movie_id}/review`, formData, {
             headers: { "Content-Type": "Application/json" },
         }).then(() => {
             setFormData(initialData)
+            reloadReviews();
         });
 
     };
@@ -41,7 +42,7 @@ const Revieform = () => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="" className='control-label' >Testo</label>
-                        <input type="text" id='text' className='form-control' value={formData.test} onChange={setFieldValue} />
+                        <input type="text" id='text' className='form-control' name="text" value={formData.text} onChange={setFieldValue} />
                         <div className="form-group">
                             <button className="btn btn-main" type='submit'>
                                 Salva Recensione

@@ -5,11 +5,13 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ReviewsCard from '../components/reviewsCard';
 import StarsRating from '../components/StarsRating';
+import Revieform from '../components/Revieform';
 
 
 const MoviePage = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+
     const fetchMovies = () => {
 
         axios.get(`http://127.0.0.1:3000/api/movies/${id}`).then((resp) => {
@@ -48,6 +50,7 @@ const MoviePage = () => {
                                 <ReviewsCard review={review} />
                             </div>
                         ))}
+                        <Revieform movie_id={movie.id} reloadReviews={fetchMovies} />
                     </>
                 )}
             </div>
