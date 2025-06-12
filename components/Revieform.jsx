@@ -5,6 +5,8 @@ import axios from 'axios'
 const Revieform = () => {
     const initialData = { name: "", text: "", vote: "" }
 
+    const { formData, setFormData } = useState(initialData);
+
     return (
         <div className='card' >
             <div className="card-header">
